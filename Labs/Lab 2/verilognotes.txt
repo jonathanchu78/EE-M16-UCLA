@@ -1,0 +1,17 @@
+Blocking:
+a[0] = in;
+a[1] = a[0];
+a[1:0] = [in, in]
+
+Non-Blocking:
+a[0] <= in;
+a[1] ,= a[0];
+
+In flip-flop/state reg: non blocking
+In always @: blocking
+Don't mix block/non-block in the same logic block
+
+FSM consists of:
+-output logic
+-NS logic
+-state registers

@@ -1,0 +1,140 @@
+design.sv
+module AOI (a, b, c, d, out);
+  input a,b,c,d;
+  output out;
+  wire out;
+  assign out = ~(a&b | c&d);
+endmodule
+
+module AND(a,b, out);
+  input a,b;
+  output out;
+  wire out;
+  assign out = a&b;
+endmodule
+
+
+module OR(a,b, out);
+  input a,b;
+  output out;
+  wire out;
+  assign out = a&b;
+endmodule
+
+
+module INV(a, out);
+  input a;
+  output out;
+  wire out;
+  assign out = ~a;
+endmodule
+
+module AOI_v2(a,b,c,d, out);
+  input a,b,c,d;
+  output out;
+  wire out;
+  wire ab, cd, o;
+  AND a1(.a(a),.b(b),.out(ab));
+  AND a2(.a(c),.b(d),.out(cd));
+  OR o1(.a(ab),.b(cd),.out(o1));
+  INV i1(.a(o1),.out(out));
+endmodule
+
+module MUX(a,b,c,d,sel, out);
+  input a,b,c,d;
+  input [1:0] sel;
+  output out;
+  reg out;
+  
+  always @(a or b or c or d or sel) //function only computes when one changes
+    begin
+      case(sel)
+        0: out=a;
+        1: out=b;
+        2: out=c;
+        3: out=d;
+        default: out=0; //not necessary since all cases defined
+      endcase
+    end
+endmodule
+
+module isprime(in, out);
+  input [3:0] in;
+  output out;
+  reg out;
+  
+  always @(in)
+    begin
+      case(in)
+        0,1,2,3,4,5,14,15: out=1'b1;
+        default: out =1'b0;
+      endcase
+    end
+endmodule
+
+
+MUX
+// Code your testbench here
+// or browse Examples
+module AOI_tb();
+  reg at,bt,ct,dt;
+  reg [1:0] selt;
+  wire outt;
+  //AOI a1(.a(at),.b(bt),.c(ct),.d(dt),.out(outt));//inside paren is the reg
+   // AOI_v2 a2(.a(at),.b(bt),.c(ct),.d(dt),.out(outt));//inside paren is the reg
+  MUX a1(.a(at),.b(bt),.c(ct),.d(dt),.sel(selt),.out(outt));
+
+  initial begin
+    at=0;bt=0;ct=0;dt=0;selt=2'b00;
+    $monitor ("a=%d,b=%d,c=%d,d=%d,sel=%d,out=%d" , at,bt,ct,dt,selt,outt); //print statement
+    #10 at=1;bt=1;
+    $monitor ("a=%d,b=%d,c=%d,d=%d,sel=%d,out=%d" , at,bt,ct,dt,selt,outt);
+
+  end
+endmodule
+
+
+IDK
+// Code your testbench here
+// or browse Examples
+module _tb();
+  reg at,bt,ct,dt;
+  reg [1:0] selt;
+  wire outt;
+  isprime a1
+  //AOI a1(.a(at),.b(bt),.c(ct),.d(dt),.out(outt));//inside paren is the reg
+   // AOI_v2 a2(.a(at),.b(bt),.c(ct),.d(dt),.out(outt));//inside paren is the reg
+  MUX a1(.a(at),.b(bt),.c(ct),.d(dt),.sel(selt),.out(outt));
+
+  initial begin
+    in=4'b0000;
+    repeat(16) begin
+      #10
+      $monitor("in=%d,out=%d",in_t,outt);
+      in=in+1;
+    end
+  end
+  
+    at=0;bt=0;ct=0;dt=0;selt=2'b00;
+    $monitor ("a=%d,b=%d,c=%d,d=%d,sel=%d,out=%d" , at,bt,ct,dt,selt,outt); //print statement
+    #10 at=1;bt=1;
+    $monitor ("a=%d,b=%d,c=%d,d=%d,sel=%d,out=%d" , at,bt,ct,dt,selt,outt);
+
+  end
+endmodule
+
+
+
+
+   single_display am(32'b11011000010000100100100000010100, letter, a);
+  single_display bm(32'b10101110001000100100010011011000, letter, b);
+  single_display cm(32'b10111110101101000101100011001000, letter, c);
+  single_display dm(32'b01000110101001101111110010100100, letter, d);
+  single_display em(32'b11010100111111101011000011110000, letter, e);
+  single_display fm(32'b11001110110000000110110001110000, letter, f);
+  single_display gm(32'b11001011110110111111101111011111, letter, g);
+
+
+
+
+

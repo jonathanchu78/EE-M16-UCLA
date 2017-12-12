@@ -1,0 +1,140 @@
+  wire [7:0] v_ab, v_cd, v_ef, v_gh, v_ij, v_kl, v_mn, v_op, v_qr, v_st, v_uv, v_wx, v_yz, v_ad, v_eh, v_il, v_mp, v_qt, v_ux, v_ah, v_ip, v_ux, v_ap, v_ax;
+  wire [4:0] l_ab, l_cd, l_ef, l_gh, l_ij, l_kl, l_mn, l_op, l_qr, l_st, l_uv, l_wx, l_yz, l_ad, l_eh, l_il, l_mp, l_qt, l_ux, l_ah, l_ip, l_ux, l_ap, l_ax;
+  
+
+  mam cmp0(.in1_value(a), .in1_label(5'b00000), .in2_value(b), .in2_label(5'b00001), .out_value(v_ab), .out_label(l_ab));
+  mam cmp1(.in1_value(c), .in1_label(5'b00010), .in2_value(d), .in2_label(5'b00011), .out_value(v_cd), .out_label(l_cd));
+  mam cmp2(.in1_value(e), .in1_label(5'b00100), .in2_value(f), .in2_label(5'b00101), .out_value(v_ef), .out_label(l_ef));
+  mam cmp3(.in1_value(g), .in1_label(5'b00110), .in2_value(h), .in2_label(5'b00111), .out_value(v_gh), .out_label(l_gh));
+  mam cmp4(.in1_value(i), .in1_label(5'b01000), .in2_value(j), .in2_label(5'b01001), .out_value(v_ij), .out_label(l_ij));
+  mam cmp5(.in1_value(k), .in1_label(5'b01010), .in2_value(l), .in2_label(5'b01011), .out_value(v_kl), .out_label(l_kl));
+  mam cmp6(.in1_value(m), .in1_label(5'b01100), .in2_value(n), .in2_label(5'b01101), .out_value(v_mn), .out_label(l_mn));
+  mam cmp7(.in1_value(o), .in1_label(5'b01110), .in2_value(p), .in2_label(5'b01111), .out_value(v_op), .out_label(l_op));
+  mam cmp8(.in1_value(q), .in1_label(5'b10000), .in2_value(r), .in2_label(5'b10001), .out_value(v_qr), .out_label(l_qr));
+  mam cmp9(.in1_value(s), .in1_label(5'b10010), .in2_value(t), .in2_label(5'b10011), .out_value(v_st), .out_label(l_st));
+  mam cmp10(.in1_value(u), .in1_label(5'b10100), .in2_value(v), .in2_label(5'b10101), .out_value(v_uv), .out_label(l_uv));
+  mam cmp11(.in1_value(w), .in1_label(5'b10110), .in2_value(x), .in2_label(5'b10111), .out_value(v_wx), .out_label(l_wx));
+  mam cmp12(.in1_value(y), .in1_label(5'b11000), .in2_value(z), .in2_label(5'b11001), .out_value(v_yz), .out_label(l_yz));
+
+  mam cmpp0(.in1_value(v_ab), .in1_label(l_ab), .in2_value(v_cd), .in2_label(l_cd), .out_value(v_ad), .out_label(l_ad));
+  mam cmpp1(.in1_value(v_ef), .in1_label(l_ef), .in2_value(v_gh), .in2_label(l_gh), .out_value(v_eh), .out_label(l_eh));
+  mam cmpp2(.in1_value(v_ij), .in1_label(l_ij), .in2_value(v_kl), .in2_label(l_kl), .out_value(v_il), .out_label(l_il));
+  mam cmpp3(.in1_value(v_mn), .in1_label(l_mn), .in2_value(v_op), .in2_label(l_op), .out_value(v_mp), .out_label(l_mp));
+  mam cmpp4(.in1_value(v_qr), .in1_label(l_qr), .in2_value(v_st), .in2_label(l_st), .out_value(v_qt), .out_label(l_qt));
+  mam cmpp5(.in1_value(v_uv), .in1_label(l_uv), .in2_value(v_wx), .in2_label(l_wx), .out_value(v_ux), .out_label(l_ux));
+
+  mam cmppp0(.in1_value(v_ad), .in1_label(l_ad), .in2_value(v_eh), .in2_label(l_eh), .out_value(v_ah), .out_label(l_ah));
+  mam cmppp1(.in1_value(v_il), .in1_label(l_il), .in2_value(v_mp), .in2_label(l_mp), .out_value(v_ip), .out_label(l_ip));
+  mam cmppp2(.in1_value(v_qt), .in1_label(l_qt), .in2_value(v_ux), .in2_label(l_ux), .out_value(v_qx), .out_label(l_qx));
+
+  mam cmpppp0(.in1_value(v_ah), .in1_label(l_ah), .in2_value(v_ip), .in2_label(l_ip), .out_value(v_ap), .out_label(l_ap));
+
+  mam cmppppp0(.in1_value(v_ap), .in1_label(l_ap), .in2_value(v_qx), .in2_label(l_qx), .out_value(v_ax), .out_label(l_ax));
+
+  omam cmpppppp0(.in1_value(v_ax), .in1_label(l_ax), .in2_value(v_yz), .in2_label(l_yz), .out_label(out));
+
+
+
+0: display=7'b1110111;
+1: display=7'b1111100;
+2: display=7'b1011000;
+3: display=7'b1011110;
+4: display=7'b1111001;
+5: display=7'b1110001;
+6: display=7'b1101111;
+7: display=7'b1110110;
+8: display=7'b0000110;
+9: display=7'b0011110;
+10: display=7'b1111000;
+11: display=7'b0111000;
+12: display=7'b0010101;
+13: display=7'b1010100;
+14: display=7'b1011100;
+15: display=7'b1110011;
+16: display=7'b1100111;
+17: display=7'b1010000;
+18: display=7'b1101101;
+19: display=7'b1000110;
+20: display=7'b0111110;
+21: display=7'b0011100;
+22: display=7'b0101010;
+23: display=7'b1001001;
+24: display=7'b1101110;
+25: display=7'b1011011;
+default: display=7'b1000000;
+
+
+
+
+
+
+module mux8(hexin, sel, out);
+  input [7:0] hexin; 
+  input [2:0] sel;
+  output out;
+  always @(sel)
+    begin
+      case(sel)
+        0: out=hexin[0];
+        1: out=hexin[1];
+        2: out=hexin[2];
+        3: out=hexin[3];
+        4: out=hexin[4];
+        5: out=hexin[5];
+        6: out=hexin[6];
+        7: out=hexin[7];
+      endcase
+    end
+endmodule
+
+module mux4(hexin, sel, out);
+  input [3:0] hexin; 
+  input [1:0] sel;
+  output out;
+  always @(sel)
+    begin
+      case(sel)
+        0: out=hexin[0];
+        1: out=hexin[1];
+        2: out=hexin[2];
+        3: out=hexin[3];
+      endcase
+    end
+endmodule
+
+
+G | 11111111001001111111000111
+b11001011
+b11011011
+b11111011
+b11011111
+F | 11001111001100011010101010
+b11001110
+b11000000
+b01101100
+b01110000
+E | 11111101011111110100110001
+b11010100
+b11111110
+b10110000
+b11110000
+D | 01111010011100100010111111
+b01000110
+b10100110
+b11111100
+b10100100
+C | 11010011110011101011110010
+b10111110
+b10110100
+b01011000
+b11001000
+B | 10010011110000011001101011
+b10101110
+b00100010
+b01000100
+b11011000
+A | 10001110000010011010000101
+b11011000
+b01000010
+b01001000
+b00010100

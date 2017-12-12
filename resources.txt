@@ -1,0 +1,11 @@
+Our optional textbook that I never got:
+Dally and Harting 2012 "Digital Design: A Systems Approach"
+
+MIT practice problems:
+https://6004.mit.edu/tutprobs/tutprobs.html
+
+MIT slides:
+https://6004.mit.edu/xhandouts
+
+MIT lectures:
+https://www.youtube.com/watch?v=9DWlqtsNGV0&list=PLMF2PpA06Sb2CcgshzLYsZJcevBZ-ZNt3
